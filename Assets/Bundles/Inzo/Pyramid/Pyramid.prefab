@@ -83,6 +83,7 @@ MonoBehaviour:
   rotationRoot: {fileID: 495777305543912727}
   rotationSpeed: 0
   maxLightEffectDuration: 1
+  rimBaseIntensity: 1
   rimEffectIntensity: 1
   rimEffectDuration: 1
 --- !u!1001 &5024517910403608221
