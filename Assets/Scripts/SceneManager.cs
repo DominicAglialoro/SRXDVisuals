@@ -17,8 +17,8 @@ public class SceneManager : MonoBehaviour {
     private bool spinningRight;
     private bool spinningLeft;
     private bool scratching;
-    private int eventIndex;
-    private double eventValue = 255d;
+    private string eventIndex = "0";
+    private string eventValue = "255.0";
 
     private void Start() {
         postProcessingVolume.profile.TryGet(out bloomComponent);
@@ -70,37 +70,51 @@ public class SceneManager : MonoBehaviour {
         GUILayout.BeginHorizontal();
         GUILayout.Label("Index:");
 
-        string field = GUILayout.TextField(eventIndex.ToString(), GUILayout.Width(200f));
-
-        if (string.IsNullOrWhiteSpace(field))
-            eventIndex = 0;
-        else if (int.TryParse(field, out int newEventIndex))
-            eventIndex = Mathf.Clamp(newEventIndex, 0, 255);
+        eventIndex = GUILayout.TextField(eventIndex, GUILayout.Width(200f));
         
         GUILayout.EndHorizontal();
         GUILayout.BeginHorizontal();
         GUILayout.Label("Value:");
 
-        field = GUILayout.TextField(eventValue.ToString("0.0#"), GUILayout.Width(200f));
-        
-        if (string.IsNullOrWhiteSpace(field))
-            eventValue = 0d;
-        else if (double.TryParse(field, out double newEventValue))
-            eventValue = Math.Clamp(newEventValue, 0d, 255d);
-        
+        eventValue = GUILayout.TextField(eventValue, GUILayout.Width(200f));
+
         GUILayout.EndHorizontal();
         
-        if (GUILayout.Button("Hit"))
-            SendEventHit(eventIndex, eventValue);
+        if (GUILayout.Button("Hit")) {
+            GetFields(out int index, out double value);
+            SendEventHit(index, value);
+        }
         
-        if (GUILayout.Button("On"))
-            SendEvent(VisualsEventType.On, eventIndex, eventValue);
+        if (GUILayout.Button("On")) {
+            GetFields(out int index, out double value);
+            SendEvent(VisualsEventType.On, index, value);
+        }
         
-        if (GUILayout.Button("Off"))
-            SendEvent(VisualsEventType.Off, eventIndex);
+        if (GUILayout.Button("Off")) {
+            GetFields(out int index, out _);
+            SendEvent(VisualsEventType.Off, index);
+        }
         
-        if (GUILayout.Button("Set Control"))
-            SendEvent(VisualsEventType.ControlChange, eventIndex, eventValue);
+        if (GUILayout.Button("Set Control")) {
+            GetFields(out int index, out double value);
+            SendEvent(VisualsEventType.ControlChange, index, value);
+        }
+    }
+
+    private void GetFields(out int index, out double value) {
+        if (int.TryParse(eventIndex, out index))
+            index = Math.Clamp(index, 0, 255);
+        else
+            index = 0;
+
+        eventIndex = index.ToString();
+
+        if (double.TryParse(eventValue, out value))
+            value = Math.Clamp(value, 0d, 255d);
+        else
+            value = 255d;
+
+        eventValue = value.ToString("0.0#");
     }
 
     private static void SendEventHit(int index, double value = 255d) {

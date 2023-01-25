@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SRXDBackgrounds.Common {
@@ -9,6 +6,13 @@ namespace SRXDBackgrounds.Common {
         [SerializeField] private Vector3 axis;
         [SerializeField] private float rate;
 
-        private void Update() => root.localRotation = Quaternion.AngleAxis(rate * Time.time, axis);
+        private float rotation;
+
+        private void LateUpdate() {
+            SetRotation(rotation + rate * Time.deltaTime);
+            root.localRotation = Quaternion.AngleAxis(rotation, axis);
+        }
+
+        public void SetRotation(float rotation) => this.rotation = Mathf.Repeat(rotation, 360f);
     }
 }

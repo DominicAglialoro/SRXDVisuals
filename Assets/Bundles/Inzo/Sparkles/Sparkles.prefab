@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2478847418123845854}
-  - component: {fileID: 1443431778870157437}
+  - component: {fileID: 2583317793601801442}
   m_Layer: 0
   m_Name: Sparkles
   m_TagString: Untagged
@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014886154208948850}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.1576252, y: 2.6049562, z: -1.3633237}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1443431778870157437
+--- !u!114 &2583317793601801442
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,11 +42,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1014886154208948850}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2462ae7dff721d54b9d97e90e25e301a, type: 3}
+  m_Script: {fileID: 11500000, guid: e74851411dce47c4b96e9306b7d3db71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystems:
-  - {fileID: 5679238263690258129}
+  particleSystem: {fileID: 5679238263690258129}
+  terrain: {fileID: 0}
+  colorToTerrain: {r: 0, g: 0, b: 0, a: 0}
+  terrainOscillatorSpeed: 0
+  terrainOscillatorStartPhase: 0
+  terrainOscillatorMin: 0
 --- !u!1 &4213583794126002725
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,7 +83,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2478847418123845854}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &5679238263690258129
 ParticleSystem:
   m_ObjectHideFlags: 0
