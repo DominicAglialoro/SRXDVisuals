@@ -10,8 +10,8 @@ namespace SRXDBackgrounds.Inzo {
         
         [SerializeField] private MeshRenderer pyramidBodyRenderer;
         [SerializeField] private MeshRenderer pyramidRimRenderer;
-        [SerializeField] private Transform rotationRoot;
-        [SerializeField] private float rotationSpeed;
+        [SerializeField] private float lightEffectStartPhase;
+        [SerializeField] private float lightEffectEndPhase;
         [SerializeField] private float maxLightEffectDuration;
         [SerializeField] private float rimBaseIntensity;
         [SerializeField] private float rimEffectIntensity;
@@ -34,17 +34,19 @@ namespace SRXDBackgrounds.Inzo {
             pyramidRimMaterial = pyramidRimRenderer.material;
         }
 
-        private void Update() {
+        private void LateUpdate() {
             float deltaTime = Time.deltaTime;
             
-            rotationRoot.localRotation = Quaternion.Euler(0f, Time.time * rotationSpeed, 0f);
-            pyramidBodyMainMaterial.SetFloat(LIGHT_EFFECT_PHASE_1, lightEffectPhaseEnvelope1.Update(deltaTime));
-            pyramidBodyMainMaterial.SetFloat(LIGHT_EFFECT_PHASE_2, lightEffectPhaseEnvelope2.Update(deltaTime));
+            pyramidBodyMainMaterial.SetFloat(
+                LIGHT_EFFECT_PHASE_1,
+                Mathf.Lerp(lightEffectStartPhase, lightEffectEndPhase, lightEffectPhaseEnvelope1.Update(deltaTime)));
+            pyramidBodyMainMaterial.SetFloat(
+                LIGHT_EFFECT_PHASE_2,
+                Mathf.Lerp(lightEffectStartPhase, lightEffectEndPhase, lightEffectPhaseEnvelope2.Update(deltaTime)));
 
             float rimPhase = rimEnvelope.Update(deltaTime);
 
             pyramidRimMaterial.SetFloat(INTENSITY, rimBaseIntensity + rimEffectIntensity * (1f - rimPhase * rimPhase * (3f - 2f * rimPhase)));
-            
         }
 
         public void LightEffect(float duration) {

@@ -14,9 +14,9 @@ namespace SRXDBackgrounds.Common {
         public void Trigger() => phase = 0f;
 
         public float Update(float deltaTime) {
-            phase += Speed * deltaTime;
+            phase = Mathf.Min(phase + Speed * deltaTime, 1f);
 
-            return Mathf.Min(phase, 1f);
+            return phase;
         }
     }
 }

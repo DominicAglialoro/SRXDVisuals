@@ -6,6 +6,7 @@ using UnityEngine;
 namespace SRXDBackgrounds.Inzo {
     public class Inzo_Scene : MonoBehaviour {
         [SerializeField] private Inzo_Pyramid pyramid;
+        [SerializeField] private Inzo_Terrain terrain;
         [SerializeField] private ParticleSystemToggle sparkles;
         
         private VisualsEventReceiver eventReceiver;
@@ -25,6 +26,9 @@ namespace SRXDBackgrounds.Inzo {
                     pyramid.RimEffect();
                     break;
                 case 2:
+                    terrain.Wave();
+                    break;
+                case 3:
                     sparkles.SetEmission(true);
                     break;
             }
@@ -32,7 +36,7 @@ namespace SRXDBackgrounds.Inzo {
 
         private void EventOff(VisualsEvent visualsEvent) {
             switch (visualsEvent.Index) {
-                case 2:
+                case 3:
                     sparkles.SetEmission(false);
                     break;
             }

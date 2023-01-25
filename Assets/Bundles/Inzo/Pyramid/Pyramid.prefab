@@ -43,6 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5370063268276339780}
   - component: {fileID: 5276880087967175708}
+  - component: {fileID: 789571801757990432}
   m_Layer: 0
   m_Name: Pyramid
   m_TagString: Untagged
@@ -80,12 +81,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pyramidBodyRenderer: {fileID: 5943407677078204953}
   pyramidRimRenderer: {fileID: 7644763970906811216}
-  rotationRoot: {fileID: 495777305543912727}
-  rotationSpeed: 0
+  lightEffectStartPhase: 0
+  lightEffectEndPhase: 0
   maxLightEffectDuration: 1
   rimBaseIntensity: 1
   rimEffectIntensity: 1
   rimEffectDuration: 1
+--- !u!114 &789571801757990432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7429059031407515782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3930ba592ed3df445904621af5a56ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 495777305543912727}
+  axis: {x: 0, y: 1, z: 0}
+  rate: -20
 --- !u!1001 &5024517910403608221
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -146,8 +146,8 @@ Material:
     - _GlossyReflections: 0
     - _Light_Base_Intensity: 0.1
     - _Light_Effect_Intensity: 2
-    - _Light_Effect_Phase_1: 0
-    - _Light_Effect_Phase_2: 0
+    - _Light_Effect_Phase_1: -0.07
+    - _Light_Effect_Phase_2: -0.07
     - _Light_Intensity: 3
     - _Metallic: 0
     - _Noise_Amount: 0.36
