@@ -16,10 +16,8 @@ namespace SRXDBackgrounds.Inzo {
         [SerializeField] private float defaultSustain;
         [SerializeField] private float defaultRelease;
         [SerializeField] private float maxIntensity;
+        [SerializeField] private float oscillatorSpeed;
         [SerializeField] private float defaultOscillatorAmount;
-        [SerializeField] private float defaultOscillatorSpeed;
-        [SerializeField] private float minOscillatorSpeed;
-        [SerializeField] private float maxOscillatorSpeed;
 
         private Material[] spotlightMaterials;
         private Material[] auraMaterials;
@@ -31,7 +29,7 @@ namespace SRXDBackgrounds.Inzo {
             spotlightMaterials = new Material[spotlightRenderers.Length];
             auraMaterials = new Material[auraRenderers.Length];
             envelopes = new EnvelopeADSR[spotlightRenderers.Length];
-            oscillator = new OscillatorSine { Speed = defaultOscillatorSpeed };
+            oscillator = new OscillatorSine { Speed = oscillatorSpeed };
             oscillatorAmount = defaultOscillatorAmount;
             
             for (int i = 0; i < spotlightRenderers.Length; i++) {
@@ -44,7 +42,6 @@ namespace SRXDBackgrounds.Inzo {
                     Release = defaultRelease
                 };
             }
-
         }
 
         private void LateUpdate() {
@@ -71,13 +68,10 @@ namespace SRXDBackgrounds.Inzo {
 
         public void SetOscillatorAmount(float value) => oscillatorAmount = value;
 
-        public void SetOscillatorSpeed(float value) => oscillator.Speed = Mathf.Lerp(minOscillatorSpeed, maxOscillatorSpeed, value);
-
         public void DoReset() {
             foreach (var envelope in envelopes)
                 envelope.Reset();
 
-            oscillator.Speed = defaultOscillatorSpeed;
             oscillator.SetPhase(0f);
             oscillatorAmount = defaultOscillatorAmount;
         }

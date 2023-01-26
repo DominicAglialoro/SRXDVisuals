@@ -103,7 +103,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Intensity: 2
+    - _Intensity: 1
     - _Light_Intensity: 2
     - _Metallic: 0
     - _OcclusionStrength: 1
@@ -122,7 +122,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.19339621, g: 1, b: 0.6836848, a: 1}
+    - _Color: {r: 0.19215685, g: 1, b: 0.91180086, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Fresnel_Color: {r: 0.2115085, g: 0.074205, b: 0.291, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}

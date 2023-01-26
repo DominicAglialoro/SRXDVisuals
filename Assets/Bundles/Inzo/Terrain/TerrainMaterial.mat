@@ -126,7 +126,7 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _Top_Light_Intensity: 0.3
+    - _Top_Light_Intensity: 0.5
     - _Wave_Far_Slope: 1.6
     - _Wave_Intensity: 1
     - _Wave_Near_Slope: 0.008

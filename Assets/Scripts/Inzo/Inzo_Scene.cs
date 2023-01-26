@@ -68,7 +68,7 @@ namespace SRXDBackgrounds.Inzo {
                     spotlights.SetOscillatorAmount(valueNormalized);
                     break;
                 case 1:
-                    spotlights.SetOscillatorSpeed(valueNormalized);
+                    pyramid.SetLightOscillatorIntensity(valueNormalized);
                     break;
             }
         }
