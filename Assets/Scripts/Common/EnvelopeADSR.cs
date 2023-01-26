@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace SRXDBackgrounds.Common {
-    public class EnvelopeADSR : IAutomation {
+    public class EnvelopeADSR {
         public float Attack { get; set; }
         
         public float Decay { get; set; }
@@ -19,6 +19,11 @@ namespace SRXDBackgrounds.Common {
         }
 
         public void EndSustain() {
+            sustained = false;
+        }
+
+        public void Reset() {
+            phase = 3f;
             sustained = false;
         }
 

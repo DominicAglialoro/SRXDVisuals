@@ -27,7 +27,7 @@ namespace SRXDBackgrounds.Inzo {
             float oscillatorValue = terrainLightOscillator.Update(deltaTime);
             float target = playing ? Mathf.Lerp(terrainOscillatorMin, 1f, oscillatorValue) : 0f;
             
-            terrain.SetMiddleLightSource("sparkles", terrainLightSmoother.Update(target, deltaTime) * colorToTerrain);
+            terrain.SetMiddleLightColor(1, terrainLightSmoother.Update(target, deltaTime) * colorToTerrain);
         }
 
         public void Play() {
@@ -43,6 +43,14 @@ namespace SRXDBackgrounds.Inzo {
 
             emission.enabled = false;
             playing = false;
+        }
+
+        public void DoReset() {
+            var emission = particleSystem.emission;
+
+            emission.enabled = false;
+            playing = false;
+            particleSystem.Clear();
         }
     }
 }

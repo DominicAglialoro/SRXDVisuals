@@ -149,10 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cee9f23d9347744490b1b94704ee077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pyramid: {fileID: 7551474063523746676}
-  terrain: {fileID: 2956579746690485355}
-  sparkles: {fileID: 2987041747930035810}
   spotlights: {fileID: 7995918452294207068}
+  pyramid: {fileID: 7551474063523746676}
+  sparkles: {fileID: 2987041747930035810}
+  terrain: {fileID: 2956579746690485355}
 --- !u!114 &4639594183666008916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,17 +241,17 @@ PrefabInstance:
     - target: {fileID: 2583317793601801442, guid: 8d51b3e3d672bf84d8d386683d5a489f,
         type: 3}
       propertyPath: colorToTerrain.b
-      value: 0.603
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 2583317793601801442, guid: 8d51b3e3d672bf84d8d386683d5a489f,
         type: 3}
       propertyPath: colorToTerrain.g
-      value: 0.54624707
+      value: 0.13538963
       objectReference: {fileID: 0}
     - target: {fileID: 2583317793601801442, guid: 8d51b3e3d672bf84d8d386683d5a489f,
         type: 3}
       propertyPath: colorToTerrain.r
-      value: 0.45875293
+      value: 0.11396104
       objectReference: {fileID: 0}
     - target: {fileID: 2583317793601801442, guid: 8d51b3e3d672bf84d8d386683d5a489f,
         type: 3}
@@ -402,17 +402,17 @@ PrefabInstance:
     - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
         type: 3}
       propertyPath: colorToTerrain.b
-      value: 0.28370786
+      value: 0.11250006
       objectReference: {fileID: 0}
     - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
         type: 3}
       propertyPath: colorToTerrain.g
-      value: 0.067415714
+      value: 0.0265625
       objectReference: {fileID: 0}
     - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
         type: 3}
       propertyPath: colorToTerrain.r
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
         type: 3}
@@ -545,24 +545,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4755344824448289510, guid: e373561469afe6f41ab70778b5395362,
         type: 3}
-      propertyPath: defaultDecay
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4755344824448289510, guid: e373561469afe6f41ab70778b5395362,
-        type: 3}
-      propertyPath: maxIntensity
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4755344824448289510, guid: e373561469afe6f41ab70778b5395362,
-        type: 3}
-      propertyPath: defaultRelease
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4755344824448289510, guid: e373561469afe6f41ab70778b5395362,
-        type: 3}
-      propertyPath: defaultSustain
-      value: 0.5
-      objectReference: {fileID: 0}
+      propertyPath: terrain
+      value: 
+      objectReference: {fileID: 2956579746690485355}
     - target: {fileID: 5193430945079692961, guid: e373561469afe6f41ab70778b5395362,
         type: 3}
       propertyPath: m_Name
@@ -737,6 +722,7 @@ MonoBehaviour:
   waveStartDistance: 12
   waveEndDistance: 950
   waveDuration: 4
+  middleLightSourceCount: 2
 --- !u!4 &7034008477667381831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1192896607677836696, guid: 464cf34dae4014d4ab06201e59b64bb8,

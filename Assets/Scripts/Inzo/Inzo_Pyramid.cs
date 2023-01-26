@@ -11,6 +11,7 @@ namespace SRXDBackgrounds.Inzo {
         [SerializeField] private MeshRenderer pyramidRimRenderer;
         [SerializeField] private float lightEffectStartPhase;
         [SerializeField] private float lightEffectEndPhase;
+        [SerializeField] private float minLightEffectDuration;
         [SerializeField] private float maxLightEffectDuration;
         [SerializeField] private float rimBaseIntensity;
         [SerializeField] private float rimEffectIntensity;
@@ -25,6 +26,7 @@ namespace SRXDBackgrounds.Inzo {
         private Material pyramidBodyNotchMaterial;
         private Material pyramidRimMaterial;
         private bool alternateLightEffect;
+        private ContinuousRotation continuousRotation;
 
         private void Awake() {
             lightEffectPhaseEnvelope1 = new EnvelopeBasic();
@@ -33,6 +35,7 @@ namespace SRXDBackgrounds.Inzo {
             pyramidBodyMainMaterial = pyramidBodyRenderer.materials[0];
             pyramidBodyNotchMaterial = pyramidBodyRenderer.materials[1];
             pyramidRimMaterial = pyramidRimRenderer.material;
+            continuousRotation = GetComponent<ContinuousRotation>();
         }
 
         private void LateUpdate() {
@@ -50,11 +53,11 @@ namespace SRXDBackgrounds.Inzo {
             float rimPhase = rimEnvelope.Update(deltaTime);
 
             pyramidRimMaterial.SetFloat(INTENSITY, rimBaseIntensity + rimEffectIntensity * rimPhase * rimPhase * (3f - 2f * rimPhase));
-            terrain.SetMiddleLightSource("pyramid", (Bell(2f * envelope1Phase) + Bell(2f * envelope2Phase)) * colorToTerrain);
+            terrain.SetMiddleLightColor(0, (Bell(2f * envelope1Phase) + Bell(2f * envelope2Phase)) * colorToTerrain);
         }
 
         public void LightEffect(float duration) {
-            duration *= maxLightEffectDuration;
+            duration = Mathf.Lerp(minLightEffectDuration, maxLightEffectDuration, duration);
             
             if (alternateLightEffect) {
                 lightEffectPhaseEnvelope1.Duration = duration;
@@ -69,6 +72,14 @@ namespace SRXDBackgrounds.Inzo {
         }
 
         public void RimEffect() => rimEnvelope.Trigger();
+
+        public void DoReset() {
+            continuousRotation.SetRotation(0f);
+            lightEffectPhaseEnvelope1.Reset();
+            lightEffectPhaseEnvelope2.Reset();
+            rimEnvelope.Reset();
+            alternateLightEffect = false;
+        }
 
         private static float Bell(float f) => Mathf.Max(0f, 1f - 4f * (f - 0.5f) * (f - 0.5f));
     }

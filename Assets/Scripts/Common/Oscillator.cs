@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace SRXDBackgrounds.Common {
-    public abstract class Oscillator : IAutomation {
+    public abstract class Oscillator {
         public float Speed { get; set; }
 
         public float Duration {

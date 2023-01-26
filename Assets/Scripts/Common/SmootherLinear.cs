@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace SRXDBackgrounds.Common {
-    public class SmootherLinear : SmootherBasic {
+    public class SmootherLinear : Smoother {
         public float RateUpward { get; set; }
         
         public float RateDownward { get; set; }

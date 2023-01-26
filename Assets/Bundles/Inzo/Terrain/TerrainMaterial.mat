@@ -114,7 +114,7 @@ Material:
     - _Metallic: 0
     - _Middle_Light_Falloff_Rate: 0.03
     - _Middle_Light_Falloff_Start: 20
-    - _Middle_Light_Intensity: 0.2
+    - _Middle_Light_Intensity: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -140,14 +140,16 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - _Back_Light_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Back_Light_Direction: {r: 0, g: -1, b: -1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Light_Direction: {r: -0.83, g: 1, b: 0.18, a: 0}
-    - _Middle_Light_Color: {r: 1, g: 0.4666667, b: 0.54932684, a: 0}
+    - _Middle_Light_Color: {r: 0, g: 0, b: 0, a: 0}
     - _Middle_Light_Position: {r: 0, g: 35, b: 48, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Top_Light_Direction: {r: -5.15, g: 1, b: 6.46, a: 0}
+    - _Top_Light_Direction: {r: 5.15, g: -1, b: 6.46, a: 0}
     - _Wave_Color: {r: 1, g: 0.6650944, b: 0.725159, a: 0}
     - _Wave_Texture_Color: {r: 0.57254905, g: 1, b: 0.9684496, a: 0}
   m_BuildTextureStacks: []

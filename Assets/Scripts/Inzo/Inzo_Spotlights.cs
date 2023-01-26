@@ -7,22 +7,36 @@ namespace SRXDBackgrounds.Inzo {
         private static readonly int INTENSITY = Shader.PropertyToID("_Intensity");
         
         [SerializeField] private Transform[] transforms;
-        [SerializeField] private MeshRenderer[] renderers;
+        [SerializeField] private MeshRenderer[] spotlightRenderers;
+        [SerializeField] private MeshRenderer[] auraRenderers;
+        [SerializeField] private Inzo_Terrain terrain;
+        [SerializeField] private Color colorToTerrain;
         [SerializeField] private float defaultAttack;
         [SerializeField] private float defaultDecay;
         [SerializeField] private float defaultSustain;
         [SerializeField] private float defaultRelease;
         [SerializeField] private float maxIntensity;
+        [SerializeField] private float defaultOscillatorAmount;
+        [SerializeField] private float defaultOscillatorSpeed;
+        [SerializeField] private float minOscillatorSpeed;
+        [SerializeField] private float maxOscillatorSpeed;
 
-        private Material[] materials;
+        private Material[] spotlightMaterials;
+        private Material[] auraMaterials;
         private EnvelopeADSR[] envelopes;
+        private OscillatorSine oscillator;
+        private float oscillatorAmount;
 
         private void Awake() {
-            materials = new Material[renderers.Length];
-            envelopes = new EnvelopeADSR[renderers.Length];
+            spotlightMaterials = new Material[spotlightRenderers.Length];
+            auraMaterials = new Material[auraRenderers.Length];
+            envelopes = new EnvelopeADSR[spotlightRenderers.Length];
+            oscillator = new OscillatorSine { Speed = defaultOscillatorSpeed };
+            oscillatorAmount = defaultOscillatorAmount;
             
-            for (int i = 0; i < renderers.Length; i++) {
-                materials[i] = renderers[i].material;
+            for (int i = 0; i < spotlightRenderers.Length; i++) {
+                spotlightMaterials[i] = spotlightRenderers[i].material;
+                auraMaterials[i] = auraRenderers[i].material;
                 envelopes[i] = new EnvelopeADSR() {
                     Attack = defaultAttack,
                     Decay = defaultDecay,
@@ -30,20 +44,42 @@ namespace SRXDBackgrounds.Inzo {
                     Release = defaultRelease
                 };
             }
+
         }
 
         private void LateUpdate() {
             float deltaTime = Time.deltaTime;
+            float amount = Mathf.Lerp(1f - oscillatorAmount, 1f, oscillator.Update(deltaTime));
+            float spotlightIntensity = maxIntensity * amount;
+            float sum = 0f;
             
             for (int i = 0; i < envelopes.Length; i++) {
                 float value = envelopes[i].Update(deltaTime);
 
-                materials[i].SetFloat(INTENSITY, maxIntensity * value);
+                sum += value;
+                value *= spotlightIntensity;
+                spotlightMaterials[i].SetFloat(INTENSITY, value);
+                auraMaterials[i].SetFloat(INTENSITY, value);
             }
+
+            terrain.SetBackLightColor(amount * sum * colorToTerrain);
         }
 
         public void Trigger(int index) => envelopes[index].Trigger();
 
         public void EndSustain(int index) => envelopes[index].EndSustain();
+
+        public void SetOscillatorAmount(float value) => oscillatorAmount = value;
+
+        public void SetOscillatorSpeed(float value) => oscillator.Speed = Mathf.Lerp(minOscillatorSpeed, maxOscillatorSpeed, value);
+
+        public void DoReset() {
+            foreach (var envelope in envelopes)
+                envelope.Reset();
+
+            oscillator.Speed = defaultOscillatorSpeed;
+            oscillator.SetPhase(0f);
+            oscillatorAmount = defaultOscillatorAmount;
+        }
     }
 }
