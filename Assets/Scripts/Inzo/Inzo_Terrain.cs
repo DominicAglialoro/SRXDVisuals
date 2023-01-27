@@ -7,6 +7,7 @@ namespace SRXDBackgrounds.Inzo {
         private static readonly int WAVE_PHASE = Shader.PropertyToID("_Wave_Phase");
         private static readonly int MIDDLE_LIGHT_COLOR = Shader.PropertyToID("_Middle_Light_Color");
         private static readonly int BACK_LIGHT_COLOR = Shader.PropertyToID("_Back_Light_Color");
+        private static readonly int BACK_LIGHT_DIRECTION = Shader.PropertyToID("_Back_Light_Direction");
         
         [SerializeField] private MeshRenderer terrainRenderer;
         [SerializeField] private float waveStartDistance;
@@ -43,7 +44,10 @@ namespace SRXDBackgrounds.Inzo {
             terrainMaterial.SetColor(MIDDLE_LIGHT_COLOR, middleLightColor);
         }
 
-        public void SetBackLightColor(Color color) => terrainMaterial.SetColor(BACK_LIGHT_COLOR, color);
+        public void SetBackLightColorAndDirection(Color color, Vector3 direction) {
+            terrainMaterial.SetColor(BACK_LIGHT_COLOR, color);
+            terrainMaterial.SetVector(BACK_LIGHT_DIRECTION, direction);
+        }
 
         public void DoReset() {
             wavePhaseEnvelope.Reset();

@@ -8,6 +8,7 @@ namespace SRXDBackgrounds.Inzo {
         [SerializeField] private Inzo_Pyramid pyramid;
         [SerializeField] private Inzo_Sparkles sparkles;
         [SerializeField] private Inzo_Terrain terrain;
+        [SerializeField] private Inzo_Crystals crystals;
         
         private VisualsEventReceiver eventReceiver;
         
@@ -39,6 +40,9 @@ namespace SRXDBackgrounds.Inzo {
                     break;
                 case 11:
                     terrain.Wave();
+                    break;
+                case 12:
+                    crystals.Trigger();
                     break;
             }
         }
@@ -78,6 +82,7 @@ namespace SRXDBackgrounds.Inzo {
             pyramid.DoReset();
             sparkles.DoReset();
             terrain.DoReset();
+            crystals.DoReset();
         }
     }
 }

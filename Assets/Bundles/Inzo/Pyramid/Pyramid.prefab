@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 7429059031407515782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 495777305543912727}
@@ -81,12 +81,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pyramidBodyRenderer: {fileID: 5943407677078204953}
   pyramidRimRenderer: {fileID: 7644763970906811216}
-  lightEffectStartPhase: 0
-  lightEffectEndPhase: 0
-  maxLightEffectDuration: 1
+  lightBaseIntensity: 0.3
+  lightEffectStartPhase: -0.07
+  lightEffectEndPhase: 3.4
+  minLightEffectDuration: 0
+  maxLightEffectDuration: 2
+  lightOscillatorSpeed: 10
+  lightOscillatorLowValue: 0.2
+  lightOscillatorMaxIntensity: 1.5
   rimBaseIntensity: 1
-  rimEffectIntensity: 1
-  rimEffectDuration: 1
+  rimEffectIntensity: 4
+  rimEffectDuration: 0.67
+  terrain: {fileID: 0}
+  colorToTerrain: {r: 0.2, g: 0.0265625, b: 0.11250006, a: 0}
 --- !u!114 &789571801757990432
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3745898520148805242}
   - component: {fileID: 3445123946900442826}
   - component: {fileID: 6145344304359729296}
-  - component: {fileID: 578477570241880733}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -84,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &578477570241880733
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272157600271168988}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1400652960165752410
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +119,7 @@ Transform:
   - {fileID: 7034008477667381831}
   - {fileID: 7621025773033868721}
   - {fileID: 9212354040068398014}
+  - {fileID: 3672627814827751537}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -152,7 +138,8 @@ MonoBehaviour:
   spotlights: {fileID: 7995918452294207068}
   pyramid: {fileID: 7551474063523746676}
   sparkles: {fileID: 2987041747930035810}
-  terrain: {fileID: 2956579746690485355}
+  terrain: {fileID: 6346756911329538996}
+  crystals: {fileID: 8976199377424063817}
 --- !u!114 &4639594183666008916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,47 +224,7 @@ PrefabInstance:
         type: 3}
       propertyPath: terrain
       value: 
-      objectReference: {fileID: 2956579746690485355}
-    - target: {fileID: 2583317793601801442, guid: 8d51b3e3d672bf84d8d386683d5a489f,
-        type: 3}
-      propertyPath: colorToTerrain.b
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583317793601801442, guid: 8d51b3e3d672bf84d8d386683d5a489f,
-        type: 3}
-      propertyPath: colorToTerrain.g
-      value: 0.13538963
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583317793601801442, guid: 8d51b3e3d672bf84d8d386683d5a489f,
-        type: 3}
-      propertyPath: colorToTerrain.r
-      value: 0.11396104
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583317793601801442, guid: 8d51b3e3d672bf84d8d386683d5a489f,
-        type: 3}
-      propertyPath: terrainOscillatorMin
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583317793601801442, guid: 8d51b3e3d672bf84d8d386683d5a489f,
-        type: 3}
-      propertyPath: terrainSmootherUpward
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583317793601801442, guid: 8d51b3e3d672bf84d8d386683d5a489f,
-        type: 3}
-      propertyPath: terrainOscillatorSpeed
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583317793601801442, guid: 8d51b3e3d672bf84d8d386683d5a489f,
-        type: 3}
-      propertyPath: terrainSmootherDownward
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583317793601801442, guid: 8d51b3e3d672bf84d8d386683d5a489f,
-        type: 3}
-      propertyPath: terrainOscillatorStartPhase
-      value: -0.25
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6346756911329538996}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d51b3e3d672bf84d8d386683d5a489f, type: 3}
@@ -384,100 +331,15 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 4223062904870256576}
     m_Modifications:
-    - target: {fileID: 3079676124768823995, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2857b6bf424b0fa46a28619c959cb14c, type: 2}
     - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
         type: 3}
       propertyPath: terrain
       value: 
-      objectReference: {fileID: 2956579746690485355}
-    - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: -20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: colorToTerrain.b
-      value: 0.11250006
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: colorToTerrain.g
-      value: 0.0265625
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: colorToTerrain.r
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: rimEffectDuration
-      value: 0.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: lightBaseIntensity
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: rimEffectIntensity
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: lightEffectEndPhase
-      value: 3.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: lightOscillatorSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: lightEffectStartPhase
-      value: -0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: maxLightEffectDuration
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: lightOscillatorLowValue
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276880087967175708, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: lightOscillatorMaxIntensity
-      value: 1.5
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6346756911329538996}
     - target: {fileID: 5370063268276339780, guid: 9064b7078ed3e9e46bc790059ecb719e,
         type: 3}
       propertyPath: m_RootOrder
       value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5370063268276339780, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5370063268276339780, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5370063268276339780, guid: 9064b7078ed3e9e46bc790059ecb719e,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5370063268276339780, guid: 9064b7078ed3e9e46bc790059ecb719e,
         type: 3}
@@ -567,12 +429,7 @@ PrefabInstance:
         type: 3}
       propertyPath: terrain
       value: 
-      objectReference: {fileID: 2956579746690485355}
-    - target: {fileID: 4755344824448289510, guid: e373561469afe6f41ab70778b5395362,
-        type: 3}
-      propertyPath: oscillatorSpeed
-      value: 10
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6346756911329538996}
     - target: {fileID: 5193430945079692961, guid: e373561469afe6f41ab70778b5395362,
         type: 3}
       propertyPath: m_Name
@@ -731,7 +588,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8148089615200600031}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2956579746690485355
+--- !u!114 &6325171405232366852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -740,23 +597,134 @@ MonoBehaviour:
   m_GameObject: {fileID: 1926815879192091011}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 964cc69464dd1d345888e700de94f5b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  camera: {fileID: 0}
+  seed: 0
+  countX: 0
+  countZ: 0
+  startMinY: 0
+  startMaxY: 0
+  endMinY: 0
+  endMaxY: 0
+  startZ: 0
+  endZ: 0
+  maxXZVariance: 0
+  minScale: 0
+  maxScale: 0
+  minRotationRate: 0
+  maxRotationRate: 0
+  minOscillateRate: 0
+  maxOscillateRate: 0
+  minOscillateAmount: 0
+  maxOscillateAmount: 0
+  generate: 0
+--- !u!114 &6346756911329538996 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2956579746690485355, guid: 464cf34dae4014d4ab06201e59b64bb8,
+    type: 3}
+  m_PrefabInstance: {fileID: 8148089615200600031}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926815879192091011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47351abe0b3d60a4caf5799dc8bdb7d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainRenderer: {fileID: 8179735856673112055}
-  waveStartDistance: 12
-  waveEndDistance: 950
-  waveDuration: 4
-  middleLightSourceCount: 2
 --- !u!4 &7034008477667381831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1192896607677836696, guid: 464cf34dae4014d4ab06201e59b64bb8,
     type: 3}
   m_PrefabInstance: {fileID: 8148089615200600031}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &8179735856673112055 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 42667896355291176, guid: 464cf34dae4014d4ab06201e59b64bb8,
+--- !u!1001 &9125679940483077152
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 4223062904870256576}
+    m_Modifications:
+    - target: {fileID: 1114183600059301162, guid: b162b3f429be68346aff4a58591ee4c5,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystals
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499781370003598417, guid: b162b3f429be68346aff4a58591ee4c5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499781370003598417, guid: b162b3f429be68346aff4a58591ee4c5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499781370003598417, guid: b162b3f429be68346aff4a58591ee4c5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499781370003598417, guid: b162b3f429be68346aff4a58591ee4c5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499781370003598417, guid: b162b3f429be68346aff4a58591ee4c5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499781370003598417, guid: b162b3f429be68346aff4a58591ee4c5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499781370003598417, guid: b162b3f429be68346aff4a58591ee4c5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499781370003598417, guid: b162b3f429be68346aff4a58591ee4c5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499781370003598417, guid: b162b3f429be68346aff4a58591ee4c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499781370003598417, guid: b162b3f429be68346aff4a58591ee4c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499781370003598417, guid: b162b3f429be68346aff4a58591ee4c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: b162b3f429be68346aff4a58591ee4c5, type: 3}
+--- !u!4 &3672627814827751537 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5499781370003598417, guid: b162b3f429be68346aff4a58591ee4c5,
     type: 3}
-  m_PrefabInstance: {fileID: 8148089615200600031}
+  m_PrefabInstance: {fileID: 9125679940483077152}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8976199377424063817 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 159086451094931817, guid: b162b3f429be68346aff4a58591ee4c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 9125679940483077152}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6728cb9ce9e145d8a971a00ef9e3b13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -47,10 +47,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 5679238263690258129}
   terrain: {fileID: 0}
-  colorToTerrain: {r: 0, g: 0, b: 0, a: 0}
-  terrainOscillatorSpeed: 0
-  terrainOscillatorStartPhase: 0
-  terrainOscillatorMin: 0
+  colorToTerrain: {r: 0.11396104, g: 0.13538963, b: 0.15, a: 0}
+  terrainOscillatorSpeed: 4.5
+  terrainOscillatorStartPhase: -0.25
+  terrainOscillatorMin: 0.7
+  terrainSmootherUpward: 40
+  terrainSmootherDownward: 10
 --- !u!1 &4213583794126002725
 GameObject:
   m_ObjectHideFlags: 0
