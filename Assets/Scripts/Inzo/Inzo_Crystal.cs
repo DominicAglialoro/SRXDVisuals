@@ -10,13 +10,9 @@ namespace SRXDBackgrounds.Inzo {
 
         private Material innerMaterial;
 
-        private void Awake() {
-            innerMaterial = innerRenderer.material;
-        }
+        private void Awake() => innerMaterial = innerRenderer.material;
 
-        public void SetIntensity(float intensity) {
-            innerMaterial.SetFloat(INTENSITY, intensity);
-        }
+        public void SetIntensity(float intensity) => innerMaterial.SetFloat(INTENSITY, intensity);
 
         public void TriggerParticleSystem() => particleSystem.Play();
 

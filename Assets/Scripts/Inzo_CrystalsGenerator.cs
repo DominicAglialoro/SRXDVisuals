@@ -31,6 +31,7 @@ namespace SRXDBackgrounds.Inzo {
         [SerializeField] private float maxOscillateAmount;
         [SerializeField] private bool generate;
 
+#if UNITY_EDITOR
         private void Update() {
             if (!generate)
                 return;
@@ -78,5 +79,6 @@ namespace SRXDBackgrounds.Inzo {
                 }
             }
         }
+#endif
     }
 }

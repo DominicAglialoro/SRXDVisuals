@@ -16,14 +16,14 @@ namespace SRXDBackgrounds.Inzo {
         [SerializeField] private float defaultRelease;
         [SerializeField] private float maxIntensity;
         [SerializeField] private float oscillatorSpeed;
-        [SerializeField] private float defaultOscillatorAmount;
+        [SerializeField] private float maxOscillatorAmount;
+        [SerializeField] private float spread;
 
         private OscillatorSine oscillator;
         private float oscillatorAmount;
 
         private void Awake() {
             oscillator = new OscillatorSine { Speed = oscillatorSpeed };
-            oscillatorAmount = defaultOscillatorAmount;
             
             foreach (var spotlight in spotlights) {
                 var envelope = spotlight.Envelope;
@@ -33,12 +33,14 @@ namespace SRXDBackgrounds.Inzo {
                 envelope.Sustain = defaultSustain;
                 envelope.Release = defaultRelease;
             }
+            
+            SetAngle(1f);
         }
 
         private void LateUpdate() {
             float deltaTime = Time.deltaTime;
-            float amount = Mathf.Lerp(1f - oscillatorAmount, 1f, oscillator.Update(deltaTime));
-            float spotlightIntensity = maxIntensity * amount;
+            float intensityScale = Mathf.Lerp(1f - oscillatorAmount, 1f, oscillator.Update(deltaTime));
+            float spotlightIntensity = maxIntensity * intensityScale;
             float sum = 0f;
             float directionInterp = 0f;
 
@@ -58,7 +60,7 @@ namespace SRXDBackgrounds.Inzo {
                 directionInterp /= sum * (spotlights.Length - 1);
 
             terrain.SetBackLightColorAndDirection(
-                amount * sum * colorToTerrain,
+                intensityScale * Mathf.Log(sum + 1f) * colorToTerrain,
                 Vector3.Lerp(minBackLightDirection, maxBackLightDirection, directionInterp));
         }
 
@@ -66,14 +68,25 @@ namespace SRXDBackgrounds.Inzo {
 
         public void EndSustain(int index) => spotlights[index].Envelope.EndSustain();
 
-        public void SetOscillatorAmount(float value) => oscillatorAmount = value;
+        public void SetOscillatorAmount(float value) => oscillatorAmount = maxOscillatorAmount * value;
+
+        public void SetAngle(float value) {
+            for (int i = 0; i < spotlights.Length; i++) {
+                var spotlight = spotlights[i];
+                float min = i >= spotlights.Length / 2 ? 90f : -90f;
+                float max = Mathf.Lerp(-spread, spread, (float) i / (spotlights.Length - 1));
+                
+                spotlight.SetRotation(Mathf.Lerp(min, max, value));
+            }
+        }
 
         public void DoReset() {
             foreach (var spotlight in spotlights)
                 spotlight.Envelope.Reset();
 
             oscillator.SetPhase(0f);
-            oscillatorAmount = defaultOscillatorAmount;
+            oscillatorAmount = 0f;
+            SetAngle(1f);
         }
     }
 }

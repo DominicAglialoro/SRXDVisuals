@@ -21,8 +21,10 @@ namespace SRXDBackgrounds.Common {
 
         public void SetRotation(float rotation) => this.rotation = Mathf.Repeat(rotation, 360f);
 
-        public void SetInitialRotation(float initialRotation) => this.initialRotation = initialRotation;
-
+#if UNITY_EDITOR
         public void SetRate(float rate) => this.rate = rate;
+        
+        public void SetInitialRotation(float initialRotation) => this.initialRotation = initialRotation;
+#endif
     }
 }

@@ -50,6 +50,8 @@ MonoBehaviour:
   waveEndDistance: 950
   waveDuration: 4
   middleLightSourceCount: 2
+  defaultTopLightIntensity: 0.5
+  maxTopLightIntensity: 1
 --- !u!1001 &1681535462628433068
 PrefabInstance:
   m_ObjectHideFlags: 0

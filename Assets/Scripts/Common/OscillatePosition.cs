@@ -23,10 +23,12 @@ namespace SRXDBackgrounds.Common {
 
         public void SetPhase(float phase) => this.phase = Mathf.Repeat(phase, 1f);
 
+#if UNITY_EDITOR
         public void SetAxis(Vector3 axis) => this.axis = axis;
         
         public void SetRate(float rate) => this.rate = rate;
 
         public void SetInitialPhase(float initialPhase) => this.initialPhase = initialPhase;
+#endif
     }
 }

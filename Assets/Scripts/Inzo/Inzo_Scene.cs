@@ -7,8 +7,9 @@ namespace SRXDBackgrounds.Inzo {
         [SerializeField] private Inzo_Spotlights spotlights;
         [SerializeField] private Inzo_Pyramid pyramid;
         [SerializeField] private Inzo_Sparkles sparkles;
-        [SerializeField] private Inzo_Terrain terrain;
         [SerializeField] private Inzo_Crystals crystals;
+        [SerializeField] private Inzo_Terrain terrain;
+        [SerializeField] private Inzo_Background background;
         
         private VisualsEventReceiver eventReceiver;
         
@@ -39,10 +40,10 @@ namespace SRXDBackgrounds.Inzo {
                     sparkles.Play();
                     break;
                 case 11:
-                    terrain.Wave();
+                    crystals.Trigger();
                     break;
                 case 12:
-                    crystals.Trigger();
+                    terrain.Wave();
                     break;
             }
         }
@@ -72,7 +73,19 @@ namespace SRXDBackgrounds.Inzo {
                     spotlights.SetOscillatorAmount(valueNormalized);
                     break;
                 case 1:
+                    spotlights.SetAngle(valueNormalized);
+                    break;
+                case 2:
+                    pyramid.SetLightIntensityScale(valueNormalized);
+                    break;
+                case 3:
                     pyramid.SetLightOscillatorIntensity(valueNormalized);
+                    break;
+                case 4:
+                    terrain.SetTopLightIntensity(valueNormalized);
+                    break;
+                case 5:
+                    background.SetIntensity(valueNormalized);
                     break;
             }
         }
@@ -81,8 +94,9 @@ namespace SRXDBackgrounds.Inzo {
             spotlights.DoReset();
             pyramid.DoReset();
             sparkles.DoReset();
-            terrain.DoReset();
             crystals.DoReset();
+            terrain.DoReset();
+            background.DoReset();
         }
     }
 }

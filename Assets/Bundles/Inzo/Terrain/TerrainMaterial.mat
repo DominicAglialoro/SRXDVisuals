@@ -147,9 +147,10 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Light_Direction: {r: -0.83, g: 1, b: 0.18, a: 0}
     - _Middle_Light_Color: {r: 0, g: 0, b: 0, a: 0}
-    - _Middle_Light_Position: {r: 0, g: 35, b: 48, a: 0}
+    - _Middle_Light_Position: {r: 0, g: 35, b: 40, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _Top_Light_Direction: {r: 5.15, g: -1, b: 6.46, a: 0}
+    - _Wave_Center: {r: 0, g: 40, b: 0, a: 0}
     - _Wave_Color: {r: 1, g: 0.6650944, b: 0.725159, a: 0}
     - _Wave_Texture_Color: {r: 0.57254905, g: 1, b: 0.9684496, a: 0}
   m_BuildTextureStacks: []
