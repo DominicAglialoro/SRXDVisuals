@@ -6,11 +6,13 @@ namespace SRXDBackgrounds.Inzo {
         private static readonly int LIGHT_EFFECT_PHASE_1 = Shader.PropertyToID("_Light_Effect_Phase_1");
         private static readonly int LIGHT_EFFECT_PHASE_2 = Shader.PropertyToID("_Light_Effect_Phase_2");
         private static readonly int INTENSITY = Shader.PropertyToID("_Intensity");
+        private static readonly int COLOR = Shader.PropertyToID("_Color");
         private static readonly int LIGHT_BASE_INTENSITY = Shader.PropertyToID("_Light_Base_Intensity");
 
         [SerializeField] private MeshRenderer pyramidBodyRenderer;
         [SerializeField] private MeshRenderer pyramidRimRenderer;
-        [SerializeField] private float lightBaseIntensity;
+        [SerializeField] private float defaultLightBaseIntensity;
+        [SerializeField] private float maxLightBaseIntensity;
         [SerializeField] private float lightEffectIntensity;
         [SerializeField] private float lightEffectStartPhase;
         [SerializeField] private float lightEffectEndPhase;
@@ -19,7 +21,8 @@ namespace SRXDBackgrounds.Inzo {
         [SerializeField] private float lightOscillatorSpeed;
         [SerializeField] private float lightOscillatorLowValue;
         [SerializeField] private float lightOscillatorMaxIntensity;
-        [SerializeField] private float rimBaseIntensity;
+        [SerializeField] private float defaultRimBaseIntensity;
+        [SerializeField] private float maxRimBaseIntensity;
         [SerializeField] private float rimEffectIntensity;
         [SerializeField] private float rimEffectDuration;
         [SerializeField] private Inzo_Terrain terrain;
@@ -35,7 +38,8 @@ namespace SRXDBackgrounds.Inzo {
         private Material pyramidRimMaterial;
         private bool alternateLightEffect;
         private float lightOscillatorIntensity;
-        private float lightIntensityScale;
+        private float lightBaseIntensity;
+        private float rimBaseIntensity;
 
         private void Awake() {
             lightEffectPhaseEnvelope1 = new EnvelopeBasic();
@@ -46,15 +50,16 @@ namespace SRXDBackgrounds.Inzo {
             pyramidBodyNotchMaterial = pyramidBodyRenderer.materials[1];
             pyramidRimMaterial = pyramidRimRenderer.material;
             continuousRotation = GetComponent<ContinuousRotation>();
-            lightIntensityScale = 1f;
+            lightBaseIntensity = defaultLightBaseIntensity;
+            rimBaseIntensity = defaultRimBaseIntensity;
+            RandomizeRimColor();
         }
 
         private void LateUpdate() {
             float deltaTime = Time.deltaTime;
             float envelope1Phase = lightEffectPhaseEnvelope1.Update(deltaTime);
             float envelope2Phase = lightEffectPhaseEnvelope2.Update(deltaTime);
-            float oscillatorValue = lightOscillatorIntensity * Mathf.Lerp(lightOscillatorLowValue, 1f, lightOscillator.Update(deltaTime));
-            float totalLightBaseIntensity = lightIntensityScale * (lightBaseIntensity + oscillatorValue);
+            float totalLightBaseIntensity = lightBaseIntensity + lightOscillatorIntensity * Mathf.Lerp(lightOscillatorLowValue, 1f, lightOscillator.Update(deltaTime));
             
             pyramidBodyMainMaterial.SetFloat(
                 LIGHT_EFFECT_PHASE_1,
@@ -65,7 +70,7 @@ namespace SRXDBackgrounds.Inzo {
             pyramidBodyMainMaterial.SetFloat(LIGHT_BASE_INTENSITY, totalLightBaseIntensity);
 
             float rimPhase = rimEnvelope.Update(deltaTime);
-            float rimIntensity = lightIntensityScale * (rimBaseIntensity + rimEffectIntensity * rimPhase * rimPhase * (3f - 2f * rimPhase));
+            float rimIntensity = rimBaseIntensity + rimEffectIntensity * rimPhase * rimPhase * (3f - 2f * rimPhase);
 
             pyramidRimMaterial.SetFloat(INTENSITY, rimIntensity);
             pyramidBodyNotchMaterial.SetFloat(INTENSITY, rimIntensity);
@@ -89,9 +94,13 @@ namespace SRXDBackgrounds.Inzo {
 
         public void RimEffect() => rimEnvelope.Trigger();
 
-        public void SetLightIntensityScale(float value) => lightIntensityScale = value;
+        public void RandomizeRimColor() => pyramidRimMaterial.SetColor(COLOR, Color.HSVToRGB(Random.value, 0.8f, 1f));
+
+        public void SetLightBaseIntensity(float value) => lightBaseIntensity = maxLightBaseIntensity * value;
 
         public void SetLightOscillatorIntensity(float value) => lightOscillatorIntensity = lightOscillatorMaxIntensity * value;
+
+        public void SetRimBaseIntensity(float value) => rimBaseIntensity = maxRimBaseIntensity * value;
 
         public void DoReset() {
             continuousRotation.SetRotation(0f);
@@ -101,7 +110,8 @@ namespace SRXDBackgrounds.Inzo {
             lightOscillator.SetPhase(0f);
             alternateLightEffect = false;
             lightOscillatorIntensity = 0f;
-            lightIntensityScale = 1f;
+            lightBaseIntensity = defaultLightBaseIntensity;
+            rimBaseIntensity = defaultRimBaseIntensity;
         }
 
         private static float Bell(float f) => Mathf.Max(0f, 1f - 4f * (f - 0.5f) * (f - 0.5f));

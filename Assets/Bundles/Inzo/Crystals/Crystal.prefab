@@ -4929,6 +4929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   innerRenderer: {fileID: 7676367273678299293}
+  outerRenderer: {fileID: 685595039827934089}
   particleSystem: {fileID: 1732864786248925322}
 --- !u!114 &1720970876242375914
 MonoBehaviour:
@@ -5104,6 +5105,12 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 853efcb5caf40be429d2a723056fbc94, type: 3}
+--- !u!23 &685595039827934089 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 853efcb5caf40be429d2a723056fbc94,
+    type: 3}
+  m_PrefabInstance: {fileID: 2180354302853523213}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1857899578765426918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 853efcb5caf40be429d2a723056fbc94,

@@ -70,7 +70,10 @@ MonoBehaviour:
   - {fileID: 1096903315443951108}
   - {fileID: 5614782903739012444}
   envelopeDuration: 0.5
-  maxIntensity: 1
+  maxEnvelopeIntensity: 1
+  maxStarsIntensity: 2
+  maxLightIntensity: 0.1
+  maxFresnelIntensity: 0.05
 --- !u!1001 &20207955949803048
 PrefabInstance:
   m_ObjectHideFlags: 0

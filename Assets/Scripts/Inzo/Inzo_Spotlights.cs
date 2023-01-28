@@ -12,8 +12,10 @@ namespace SRXDBackgrounds.Inzo {
         [SerializeField] private Vector3 maxBackLightDirection;
         [SerializeField] private float defaultAttack;
         [SerializeField] private float defaultDecay;
-        [SerializeField] private float defaultSustain;
         [SerializeField] private float defaultRelease;
+        [SerializeField] private float maxDecay;
+        [SerializeField] private float maxRelease;
+        [SerializeField] private float defaultIntensity;
         [SerializeField] private float maxIntensity;
         [SerializeField] private float oscillatorSpeed;
         [SerializeField] private float maxOscillatorAmount;
@@ -21,6 +23,7 @@ namespace SRXDBackgrounds.Inzo {
 
         private OscillatorSine oscillator;
         private float oscillatorAmount;
+        private float intensity;
 
         private void Awake() {
             oscillator = new OscillatorSine { Speed = oscillatorSpeed };
@@ -30,18 +33,18 @@ namespace SRXDBackgrounds.Inzo {
 
                 envelope.Attack = defaultAttack;
                 envelope.Decay = defaultDecay;
-                envelope.Sustain = defaultSustain;
                 envelope.Release = defaultRelease;
             }
             
             SetAngle(1f);
+            intensity = defaultIntensity;
         }
 
         private void LateUpdate() {
             float deltaTime = Time.deltaTime;
-            float intensityScale = Mathf.Lerp(1f - oscillatorAmount, 1f, oscillator.Update(deltaTime));
-            float spotlightIntensity = maxIntensity * intensityScale;
+            float spotlightIntensity = intensity * Mathf.Lerp(1f - oscillatorAmount, 1f, oscillator.Update(deltaTime));
             float sum = 0f;
+            float sumPow = 0f;
             float directionInterp = 0f;
 
             for (int i = 0; i < spotlights.Length; i++) {
@@ -50,6 +53,7 @@ namespace SRXDBackgrounds.Inzo {
                 float value = envelope.Update(deltaTime);
 
                 sum += value;
+                sumPow += Mathf.Pow(value, 2.2f);
                 directionInterp += i * value;
                 spotlight.SetIntensity(spotlightIntensity * value);
             }
@@ -60,13 +64,34 @@ namespace SRXDBackgrounds.Inzo {
                 directionInterp /= sum * (spotlights.Length - 1);
 
             terrain.SetBackLightColorAndDirection(
-                intensityScale * Mathf.Log(sum + 1f) * colorToTerrain,
+                spotlightIntensity * Mathf.Pow(sumPow, 1f / 2.2f) * colorToTerrain,
                 Vector3.Lerp(minBackLightDirection, maxBackLightDirection, directionInterp));
         }
 
-        public void Trigger(int index) => spotlights[index].Envelope.Trigger();
+        public void Trigger(int index, float value) {
+            var envelope = spotlights[index].Envelope;
+
+            envelope.Sustain = value;
+            envelope.Trigger();
+        }
 
         public void EndSustain(int index) => spotlights[index].Envelope.EndSustain();
+
+        public void SetIntensity(float value) => intensity = maxIntensity * value;
+
+        public void SetDecay(float value) {
+            value *= maxDecay;
+            
+            foreach (var spotlight in spotlights)
+                spotlight.Envelope.Decay = value;
+        }
+        
+        public void SetRelease(float value) {
+            value *= maxRelease;
+            
+            foreach (var spotlight in spotlights)
+                spotlight.Envelope.Release = value;
+        }
 
         public void SetOscillatorAmount(float value) => oscillatorAmount = maxOscillatorAmount * value;
 
@@ -81,12 +106,18 @@ namespace SRXDBackgrounds.Inzo {
         }
 
         public void DoReset() {
-            foreach (var spotlight in spotlights)
-                spotlight.Envelope.Reset();
+            foreach (var spotlight in spotlights) {
+                var envelope = spotlight.Envelope;
+
+                envelope.Decay = defaultDecay;
+                envelope.Release = defaultRelease;
+                envelope.Reset();
+            }
 
             oscillator.SetPhase(0f);
             oscillatorAmount = 0f;
             SetAngle(1f);
+            intensity = defaultIntensity;
         }
     }
 }

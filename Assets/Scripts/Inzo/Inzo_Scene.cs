@@ -28,7 +28,7 @@ namespace SRXDBackgrounds.Inzo {
             
             switch (index) {
                 case < 8:
-                    spotlights.Trigger(index);
+                    spotlights.Trigger(index, valueNormalized);
                     break;
                 case 8:
                     pyramid.LightEffect(valueNormalized);
@@ -37,12 +37,15 @@ namespace SRXDBackgrounds.Inzo {
                     pyramid.RimEffect();
                     break;
                 case 10:
-                    sparkles.Play();
+                    pyramid.RandomizeRimColor();
                     break;
                 case 11:
-                    crystals.Trigger();
+                    sparkles.Play();
                     break;
                 case 12:
+                    crystals.Trigger();
+                    break;
+                case 13:
                     terrain.Wave();
                     break;
             }
@@ -50,8 +53,6 @@ namespace SRXDBackgrounds.Inzo {
 
         private void EventOff(VisualsEvent visualsEvent) {
             int index = visualsEvent.Index;
-            float value = visualsEvent.Value;
-            float valueNormalized = value / 255f;
             
             switch (index) {
                 case < 8:
@@ -70,21 +71,36 @@ namespace SRXDBackgrounds.Inzo {
             
             switch (index) {
                 case 0:
-                    spotlights.SetOscillatorAmount(valueNormalized);
+                    spotlights.SetIntensity(valueNormalized);
                     break;
                 case 1:
-                    spotlights.SetAngle(valueNormalized);
+                    spotlights.SetDecay(valueNormalized);
                     break;
                 case 2:
-                    pyramid.SetLightIntensityScale(valueNormalized);
+                    spotlights.SetRelease(valueNormalized);
                     break;
                 case 3:
-                    pyramid.SetLightOscillatorIntensity(valueNormalized);
+                    spotlights.SetOscillatorAmount(valueNormalized);
                     break;
                 case 4:
-                    terrain.SetTopLightIntensity(valueNormalized);
+                    spotlights.SetAngle(valueNormalized);
                     break;
                 case 5:
+                    pyramid.SetLightBaseIntensity(valueNormalized);
+                    break;
+                case 6:
+                    pyramid.SetLightOscillatorIntensity(valueNormalized);
+                    break;
+                case 7:
+                    pyramid.SetRimBaseIntensity(valueNormalized);
+                    break;
+                case 8:
+                    crystals.SetIntensity(valueNormalized);
+                    break;
+                case 9:
+                    terrain.SetTopLightIntensity(valueNormalized);
+                    break;
+                case 10:
                     background.SetIntensity(valueNormalized);
                     break;
             }

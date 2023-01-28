@@ -81,16 +81,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pyramidBodyRenderer: {fileID: 5943407677078204953}
   pyramidRimRenderer: {fileID: 7644763970906811216}
-  lightBaseIntensity: 0.3
+  defaultLightBaseIntensity: 0.3
+  maxLightBaseIntensity: 1.2
   lightEffectIntensity: 4
   lightEffectStartPhase: -0.07
   lightEffectEndPhase: 3.4
-  minLightEffectDuration: 0
+  minLightEffectDuration: 0.1
   maxLightEffectDuration: 2
   lightOscillatorSpeed: 10
   lightOscillatorLowValue: 0.2
   lightOscillatorMaxIntensity: 1.5
-  rimBaseIntensity: 1
+  defaultRimBaseIntensity: 1
+  maxRimBaseIntensity: 2
   rimEffectIntensity: 4
   rimEffectDuration: 0.67
   terrain: {fileID: 0}

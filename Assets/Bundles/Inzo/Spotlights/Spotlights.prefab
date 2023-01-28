@@ -38,7 +38,7 @@ Transform:
   - {fileID: 5222604524293484614}
   - {fileID: 1429811969945919099}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4755344824448289510
 MonoBehaviour:
@@ -62,14 +62,16 @@ MonoBehaviour:
   - {fileID: 3067151206038099283}
   - {fileID: 8159793036556630894}
   terrain: {fileID: 0}
-  colorToTerrain: {r: 0.040000003, g: 0.08, b: 0.12, a: 1}
+  colorToTerrain: {r: 0.0016666668, g: 0.0033333334, b: 0.005, a: 1}
   minBackLightDirection: {x: 1, y: -1, z: -1}
   maxBackLightDirection: {x: -1, y: -1, z: -1}
   defaultAttack: 0
   defaultDecay: 0.2
-  defaultSustain: 0.5
   defaultRelease: 0.2
-  maxIntensity: 64
+  maxDecay: 2
+  maxRelease: 2
+  defaultIntensity: 16
+  maxIntensity: 32
   oscillatorSpeed: 10
   maxOscillatorAmount: 0.5
   spread: 12
