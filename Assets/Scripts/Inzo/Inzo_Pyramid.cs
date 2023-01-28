@@ -45,7 +45,7 @@ namespace SRXDBackgrounds.Inzo {
             lightEffectPhaseEnvelope1 = new EnvelopeBasic();
             lightEffectPhaseEnvelope2 = new EnvelopeBasic();
             rimEnvelope = new EnvelopeInverted { Duration = rimEffectDuration };
-            lightOscillator = new OscillatorSawtooth() { Speed = lightOscillatorSpeed };
+            lightOscillator = new OscillatorSawtooth { Speed = lightOscillatorSpeed };
             pyramidBodyMainMaterial = pyramidBodyRenderer.materials[0];
             pyramidBodyNotchMaterial = pyramidBodyRenderer.materials[1];
             pyramidRimMaterial = pyramidRimRenderer.material;
@@ -103,7 +103,6 @@ namespace SRXDBackgrounds.Inzo {
         public void SetRimBaseIntensity(float value) => rimBaseIntensity = maxRimBaseIntensity * value;
 
         public void DoReset() {
-            continuousRotation.SetRotation(0f);
             lightEffectPhaseEnvelope1.Reset();
             lightEffectPhaseEnvelope2.Reset();
             rimEnvelope.Reset();

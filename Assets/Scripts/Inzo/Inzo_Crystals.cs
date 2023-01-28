@@ -13,10 +13,9 @@ namespace SRXDBackgrounds.Inzo {
 
         private EnvelopeInverted envelope;
 
-        private void Awake() {
-            envelope = new EnvelopeInverted() { Duration = envelopeDuration };
-            SetIntensity(1f);
-        }
+        private void Awake() => envelope = new EnvelopeInverted { Duration = envelopeDuration };
+
+        private void Start() => SetIntensity(1f);
 
         private void LateUpdate() {
             float deltaTime = Time.deltaTime;

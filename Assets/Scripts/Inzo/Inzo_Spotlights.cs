@@ -27,7 +27,10 @@ namespace SRXDBackgrounds.Inzo {
 
         private void Awake() {
             oscillator = new OscillatorSine { Speed = oscillatorSpeed };
-            
+            intensity = defaultIntensity;
+        }
+
+        private void Start() {
             foreach (var spotlight in spotlights) {
                 var envelope = spotlight.Envelope;
 
@@ -37,7 +40,6 @@ namespace SRXDBackgrounds.Inzo {
             }
             
             SetAngle(1f);
-            intensity = defaultIntensity;
         }
 
         private void LateUpdate() {

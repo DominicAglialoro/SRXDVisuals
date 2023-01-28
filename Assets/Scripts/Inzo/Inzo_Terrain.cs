@@ -23,7 +23,7 @@ namespace SRXDBackgrounds.Inzo {
         private Color[] middleLightColors;
 
         private void Awake() {
-            wavePhaseEnvelope = new EnvelopeBasic() { Duration = waveDuration };
+            wavePhaseEnvelope = new EnvelopeBasic { Duration = waveDuration };
             terrainMaterial = terrainRenderer.material;
             middleLightColors = new Color[middleLightSourceCount];
             terrainMaterial.SetFloat(TOP_LIGHT_INTENSITY, defaultTopLightIntensity);

@@ -18,8 +18,8 @@ namespace SRXDBackgrounds.Inzo {
         private SmootherLinear terrainLightSmoother;
 
         private void Awake() {
-            terrainLightOscillator = new OscillatorSine() { Speed = terrainOscillatorSpeed };
-            terrainLightSmoother = new SmootherLinear() { RateUpward = terrainSmootherUpward, RateDownward = terrainSmootherDownward };
+            terrainLightOscillator = new OscillatorSine { Speed = terrainOscillatorSpeed };
+            terrainLightSmoother = new SmootherLinear { RateUpward = terrainSmootherUpward, RateDownward = terrainSmootherDownward };
         }
 
         private void LateUpdate() {
