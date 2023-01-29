@@ -21,12 +21,12 @@ namespace SRXDBackgrounds.Inzo {
         [SerializeField] private float maxOscillatorAmount;
         [SerializeField] private float spread;
 
-        private OscillatorSine oscillator;
+        private OscillatorSquare oscillator;
         private float oscillatorAmount;
         private float intensity;
 
         private void Awake() {
-            oscillator = new OscillatorSine { Speed = oscillatorSpeed };
+            oscillator = new OscillatorSquare { Speed = oscillatorSpeed };
             intensity = defaultIntensity;
         }
 

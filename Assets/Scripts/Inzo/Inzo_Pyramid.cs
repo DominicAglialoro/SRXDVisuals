@@ -19,7 +19,6 @@ namespace SRXDBackgrounds.Inzo {
         [SerializeField] private float minLightEffectDuration;
         [SerializeField] private float maxLightEffectDuration;
         [SerializeField] private float lightOscillatorSpeed;
-        [SerializeField] private float lightOscillatorLowValue;
         [SerializeField] private float lightOscillatorMaxIntensity;
         [SerializeField] private float defaultRimBaseIntensity;
         [SerializeField] private float maxRimBaseIntensity;
@@ -32,7 +31,7 @@ namespace SRXDBackgrounds.Inzo {
         private EnvelopeBasic lightEffectPhaseEnvelope1;
         private EnvelopeBasic lightEffectPhaseEnvelope2;
         private EnvelopeInverted rimEnvelope;
-        private OscillatorSawtooth lightOscillator;
+        private OscillatorSquare lightOscillator;
         private Material pyramidBodyMainMaterial;
         private Material pyramidBodyNotchMaterial;
         private Material pyramidRimMaterial;
@@ -45,7 +44,7 @@ namespace SRXDBackgrounds.Inzo {
             lightEffectPhaseEnvelope1 = new EnvelopeBasic();
             lightEffectPhaseEnvelope2 = new EnvelopeBasic();
             rimEnvelope = new EnvelopeInverted { Duration = rimEffectDuration };
-            lightOscillator = new OscillatorSawtooth { Speed = lightOscillatorSpeed };
+            lightOscillator = new OscillatorSquare { Speed = lightOscillatorSpeed };
             pyramidBodyMainMaterial = pyramidBodyRenderer.materials[0];
             pyramidBodyNotchMaterial = pyramidBodyRenderer.materials[1];
             pyramidRimMaterial = pyramidRimRenderer.material;
@@ -59,7 +58,7 @@ namespace SRXDBackgrounds.Inzo {
             float deltaTime = Time.deltaTime;
             float envelope1Phase = lightEffectPhaseEnvelope1.Update(deltaTime);
             float envelope2Phase = lightEffectPhaseEnvelope2.Update(deltaTime);
-            float totalLightBaseIntensity = lightBaseIntensity + lightOscillatorIntensity * Mathf.Lerp(lightOscillatorLowValue, 1f, lightOscillator.Update(deltaTime));
+            float totalLightBaseIntensity = lightBaseIntensity + lightOscillatorIntensity * lightOscillator.Update(deltaTime);
             
             pyramidBodyMainMaterial.SetFloat(
                 LIGHT_EFFECT_PHASE_1,
