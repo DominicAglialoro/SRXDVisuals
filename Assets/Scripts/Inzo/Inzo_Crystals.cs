@@ -1,5 +1,4 @@
-﻿using System;
-using SRXDBackgrounds.Common;
+﻿using SRXDBackgrounds.Common;
 using UnityEngine;
 
 namespace SRXDBackgrounds.Inzo {

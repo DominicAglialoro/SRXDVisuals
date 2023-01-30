@@ -1,28 +1,33 @@
-using System;
 using UnityEngine;
 
 namespace SRXDBackgrounds.Common {
     public class ContinuousRotation : MonoBehaviour {
         [SerializeField] private Transform root;
         [SerializeField] private Vector3 axis;
-        [SerializeField] private float rate;
+        [SerializeField] private float initialRate;
         [SerializeField] private float initialRotation;
 
+        public float Rate { get; set; }
+
+        public float Rotation {
+            get => rotation;
+            set => rotation = rotation = Mathf.Repeat(value, 360f);
+        }
+        
         private float rotation;
 
         private void Awake() {
-            rotation = initialRotation;
+            Rate = initialRate;
+            Rotation = initialRotation;
         }
 
         private void LateUpdate() {
-            SetRotation(rotation + rate * Time.deltaTime);
-            root.localRotation = Quaternion.AngleAxis(rotation, axis);
+            Rotation += Rate * Time.deltaTime;
+            root.localRotation = Quaternion.AngleAxis(Rotation, axis);
         }
 
-        public void SetRotation(float rotation) => this.rotation = Mathf.Repeat(rotation, 360f);
-
 #if UNITY_EDITOR
-        public void SetRate(float rate) => this.rate = rate;
+        public void SetInitialRate(float rate) => this.initialRate = rate;
         
         public void SetInitialRotation(float initialRotation) => this.initialRotation = initialRotation;
 #endif

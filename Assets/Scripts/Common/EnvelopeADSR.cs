@@ -10,24 +10,30 @@ namespace SRXDBackgrounds.Common {
         
         public float Release { get; set; }
 
-        private float phase = 3f;
+        private float phase = 2f;
+        private float releasePhase = 1f;
         private bool sustained;
 
         public void Trigger() {
             phase = 0f;
+            releasePhase = 0f;
             sustained = true;
         }
 
         public void EndSustain() {
+            releasePhase = 0f;
             sustained = false;
         }
 
         public void Reset() {
-            phase = 3f;
+            phase = 2f;
+            releasePhase = 1f;
             sustained = false;
         }
 
-        public float Update(float deltaTime) {
+        public float Update(float deltaTime) => Mathf.Lerp(UpdateAttackDecay(deltaTime), 0f, UpdateRelease(deltaTime));
+
+        private float UpdateAttackDecay(float deltaTime) {
             if (phase < 1f) {
                 if (Attack <= 0f)
                     phase = 1f;
@@ -45,38 +51,43 @@ namespace SRXDBackgrounds.Common {
                 }
             }
 
-            if (phase < 2f) {
-                if (Decay <= 0f)
-                    phase = 2f;
-                else {
-                    float remaining = Decay * (2f - phase);
-
-                    if (deltaTime < remaining) {
-                        phase += deltaTime / Decay;
-
-                        return Mathf.Lerp(1f, Sustain, phase - 1f);
-                    }
-
-                    phase = 2f;
-                    deltaTime -= remaining;
-                }
-            }
-
-            if (sustained) {
+            if (phase >= 2f || Decay <= 0f) {
                 phase = 2f;
 
                 return Sustain;
             }
 
-            if (Release <= 0 || phase >= 3f) {
-                phase = 3f;
+            phase += deltaTime / Decay;
+
+            if (phase < 2f)
+                return Mathf.Lerp(1f, Sustain, phase - 1f);
+            
+            phase = 2f;
+
+            return Sustain;
+        }
+
+        private float UpdateRelease(float deltaTime) {
+            if (sustained) {
+                releasePhase = 0f;
 
                 return 0f;
             }
+            
+            if (releasePhase >= 1f || Release <= 0f) {
+                releasePhase = 1f;
 
-            phase = Mathf.Min(phase + deltaTime / Release, 3f);
+                return 1f;
+            }
 
-            return Mathf.Lerp(Sustain, 0f, phase - 2f);
+            releasePhase += deltaTime / Release;
+
+            if (releasePhase < 1f)
+                return releasePhase;
+            
+            releasePhase = 1f;
+
+            return 1f;
         }
     }
 }

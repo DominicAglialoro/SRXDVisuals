@@ -1,4 +1,3 @@
-using System;
 using SRXDCustomVisuals.Core;
 using UnityEngine;
 

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using SRXDBackgrounds.Common;
 using UnityEditor;
 using UnityEngine;
@@ -71,10 +68,10 @@ namespace SRXDBackgrounds.Inzo {
 
                     instanceTransform.position = newPosition;
                     instanceTransform.localScale = Mathf.Lerp(minScale, maxScale, (float) random.NextDouble()) * Vector3.one;
-                    continuousRotation.SetRate((random.Next(2) > 0 ? 1f : -1f) * Mathf.Lerp(minRotationRate, maxRotationRate, (float) random.NextDouble()));
+                    continuousRotation.SetInitialRate((random.Next(2) > 0 ? 1f : -1f) * Mathf.Lerp(minRotationRate, maxRotationRate, (float) random.NextDouble()));
                     continuousRotation.SetInitialRotation(360f * (float) random.NextDouble());
                     oscillatePosition.SetAxis(Mathf.Lerp(minOscillateAmount, maxOscillateAmount, (float) random.NextDouble()) * Vector3.up);
-                    oscillatePosition.SetRate(Mathf.Lerp(minOscillateRate, maxOscillateRate, (float) random.NextDouble()));
+                    oscillatePosition.SetInitialRate(Mathf.Lerp(minOscillateRate, maxOscillateRate, (float) random.NextDouble()));
                     oscillatePosition.SetInitialPhase((float) random.NextDouble());
                 }
             }

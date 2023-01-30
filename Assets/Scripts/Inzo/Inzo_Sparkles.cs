@@ -1,4 +1,3 @@
-using System;
 using SRXDBackgrounds.Common;
 using UnityEngine;
 

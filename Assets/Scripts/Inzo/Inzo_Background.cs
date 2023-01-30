@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace SRXDBackgrounds.Inzo {
     public class Inzo_Background : MonoBehaviour {

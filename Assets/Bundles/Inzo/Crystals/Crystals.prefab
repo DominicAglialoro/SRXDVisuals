@@ -159,6 +159,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
+      propertyPath: initialRate
+      value: 22.682735
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
       propertyPath: initialRotation
       value: 219.05852
       objectReference: {fileID: 0}
@@ -176,6 +181,11 @@ PrefabInstance:
         type: 3}
       propertyPath: axis.y
       value: 1.4789721
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
+      propertyPath: initialRate
+      value: 0.07999831
       objectReference: {fileID: 0}
     - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
@@ -288,6 +298,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
+      propertyPath: initialRate
+      value: 27.097843
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
       propertyPath: initialRotation
       value: 231.34972
       objectReference: {fileID: 0}
@@ -305,6 +320,11 @@ PrefabInstance:
         type: 3}
       propertyPath: axis.y
       value: 0.9764898
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
+      propertyPath: initialRate
+      value: 0.09578096
       objectReference: {fileID: 0}
     - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
@@ -417,6 +437,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
+      propertyPath: initialRate
+      value: 23.526207
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
       propertyPath: initialRotation
       value: 305.58524
       objectReference: {fileID: 0}
@@ -434,6 +459,11 @@ PrefabInstance:
         type: 3}
       propertyPath: axis.y
       value: 1.0232968
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
+      propertyPath: initialRate
+      value: 0.08117507
       objectReference: {fileID: 0}
     - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
@@ -546,6 +576,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
+      propertyPath: initialRate
+      value: 22.795628
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
       propertyPath: initialRotation
       value: 62.618042
       objectReference: {fileID: 0}
@@ -563,6 +598,11 @@ PrefabInstance:
         type: 3}
       propertyPath: axis.y
       value: 1.4580921
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
+      propertyPath: initialRate
+      value: 0.06752431
       objectReference: {fileID: 0}
     - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
@@ -675,6 +715,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
+      propertyPath: initialRate
+      value: 22.265865
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
       propertyPath: initialRotation
       value: 82.70213
       objectReference: {fileID: 0}
@@ -692,6 +737,11 @@ PrefabInstance:
         type: 3}
       propertyPath: axis.y
       value: 0.87664187
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
+      propertyPath: initialRate
+      value: 0.08924446
       objectReference: {fileID: 0}
     - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
@@ -804,6 +854,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
+      propertyPath: initialRate
+      value: 24.123703
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
       propertyPath: initialRotation
       value: 274.70142
       objectReference: {fileID: 0}
@@ -821,6 +876,11 @@ PrefabInstance:
         type: 3}
       propertyPath: axis.y
       value: 1.1544026
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
+      propertyPath: initialRate
+      value: 0.05844221
       objectReference: {fileID: 0}
     - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
@@ -933,6 +993,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
+      propertyPath: initialRate
+      value: -28.715775
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
       propertyPath: initialRotation
       value: 159.94044
       objectReference: {fileID: 0}
@@ -950,6 +1015,11 @@ PrefabInstance:
         type: 3}
       propertyPath: axis.y
       value: 1.3990134
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
+      propertyPath: initialRate
+      value: 0.09501481
       objectReference: {fileID: 0}
     - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
@@ -1062,6 +1132,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
+      propertyPath: initialRate
+      value: 17.630646
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
       propertyPath: initialRotation
       value: 277.1376
       objectReference: {fileID: 0}
@@ -1079,6 +1154,11 @@ PrefabInstance:
         type: 3}
       propertyPath: axis.y
       value: 0.8771888
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
+      propertyPath: initialRate
+      value: 0.08176661
       objectReference: {fileID: 0}
     - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
@@ -1191,6 +1271,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
+      propertyPath: initialRate
+      value: 23.302647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
       propertyPath: initialRotation
       value: 185.66916
       objectReference: {fileID: 0}
@@ -1208,6 +1293,11 @@ PrefabInstance:
         type: 3}
       propertyPath: axis.y
       value: 1.3154038
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
+      propertyPath: initialRate
+      value: 0.076232426
       objectReference: {fileID: 0}
     - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
@@ -1320,6 +1410,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
+      propertyPath: initialRate
+      value: 15.221743
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
       propertyPath: initialRotation
       value: 344.64825
       objectReference: {fileID: 0}
@@ -1337,6 +1432,11 @@ PrefabInstance:
         type: 3}
       propertyPath: axis.y
       value: 0.8122589
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
+      propertyPath: initialRate
+      value: 0.062436793
       objectReference: {fileID: 0}
     - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
@@ -1449,6 +1549,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
+      propertyPath: initialRate
+      value: -14.800289
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
       propertyPath: initialRotation
       value: 184.05177
       objectReference: {fileID: 0}
@@ -1466,6 +1571,11 @@ PrefabInstance:
         type: 3}
       propertyPath: axis.y
       value: 1.2824348
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
+      propertyPath: initialRate
+      value: 0.08800753
       objectReference: {fileID: 0}
     - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
@@ -1578,6 +1688,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
+      propertyPath: initialRate
+      value: 29.00322
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720970876242375914, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
       propertyPath: initialRotation
       value: 350.05087
       objectReference: {fileID: 0}
@@ -1595,6 +1710,11 @@ PrefabInstance:
         type: 3}
       propertyPath: axis.y
       value: 1.3641223
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
+        type: 3}
+      propertyPath: initialRate
+      value: 0.08429329
       objectReference: {fileID: 0}
     - target: {fileID: 8543118596023577591, guid: 9e389210c18088c4a8a99f915e9bf310,
         type: 3}
