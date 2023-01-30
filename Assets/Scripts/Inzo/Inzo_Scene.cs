@@ -48,6 +48,9 @@ namespace SRXDBackgrounds.Inzo {
                 case 13:
                     terrain.Wave();
                     break;
+                case 14:
+                    terrain.PulseTriangles();
+                    break;
             }
         }
 

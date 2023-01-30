@@ -4861,12 +4861,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainRenderer: {fileID: 42667896355291176}
+  trianglesRenderer: {fileID: 6279997592105493381}
   waveStartDistance: 12
   waveEndDistance: 950
   waveDuration: 4
   middleLightSourceCount: 2
   defaultTopLightIntensity: 0.5
   maxTopLightIntensity: 1
+  trianglesBaseIntensity: 1
+  trianglesPulseIntensity: 2
+  trianglesPulseDuration: 0.67
 --- !u!1001 &1681535462628433068
 PrefabInstance:
   m_ObjectHideFlags: 0
