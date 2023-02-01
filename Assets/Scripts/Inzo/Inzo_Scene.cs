@@ -27,7 +27,7 @@ namespace SRXDBackgrounds.Inzo {
             
             switch (index) {
                 case < 8:
-                    spotlights.Trigger(index, valueNormalized);
+                    spotlights.Trigger(index);
                     break;
                 case 8:
                     pyramid.LightEffect(valueNormalized);
@@ -60,7 +60,7 @@ namespace SRXDBackgrounds.Inzo {
                 case < 8:
                     spotlights.EndSustain(index);
                     break;
-                case 10:
+                case 11:
                     sparkles.Stop();
                     break;
             }
@@ -79,25 +79,25 @@ namespace SRXDBackgrounds.Inzo {
                     spotlights.SetDecay(valueNormalized);
                     break;
                 case 2:
-                    spotlights.SetRelease(valueNormalized);
+                    spotlights.SetSustain(valueNormalized);
                     break;
                 case 3:
-                    spotlights.SetOscillatorAmount(valueNormalized);
+                    spotlights.SetRelease(valueNormalized);
                     break;
                 case 4:
-                    spotlights.SetAngle(valueNormalized);
+                    spotlights.SetOscillatorAmount(valueNormalized);
                     break;
                 case 5:
-                    pyramid.SetLightBaseIntensity(valueNormalized);
+                    spotlights.SetAngle(valueNormalized);
                     break;
                 case 6:
-                    pyramid.SetLightOscillatorIntensity(valueNormalized);
+                    pyramid.SetLightBaseIntensity(valueNormalized);
                     break;
                 case 7:
-                    pyramid.SetRimBaseIntensity(valueNormalized);
+                    pyramid.SetLightOscillatorIntensity(valueNormalized);
                     break;
                 case 8:
-                    crystals.SetIntensity(valueNormalized);
+                    pyramid.SetRimBaseIntensity(valueNormalized);
                     break;
                 case 9:
                     terrain.SetTopLightIntensity(valueNormalized);

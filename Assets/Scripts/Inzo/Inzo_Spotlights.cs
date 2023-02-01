@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace SRXDBackgrounds.Inzo {
     public class Inzo_Spotlights : MonoBehaviour {
-
         [SerializeField] private Inzo_Spotlight[] spotlights;
         [SerializeField] private Inzo_Terrain terrain;
         [SerializeField] private Color colorToTerrain;
@@ -35,6 +34,7 @@ namespace SRXDBackgrounds.Inzo {
 
                 envelope.Attack = defaultAttack;
                 envelope.Decay = defaultDecay;
+                envelope.Sustain = 1f;
                 envelope.Release = defaultRelease;
             }
             
@@ -69,12 +69,7 @@ namespace SRXDBackgrounds.Inzo {
                 Vector3.Lerp(minBackLightDirection, maxBackLightDirection, directionInterp));
         }
 
-        public void Trigger(int index, float value) {
-            var envelope = spotlights[index].Envelope;
-
-            envelope.Sustain = value;
-            envelope.Trigger();
-        }
+        public void Trigger(int index) => spotlights[index].Envelope.Trigger();
 
         public void EndSustain(int index) => spotlights[index].Envelope.EndSustain();
 
@@ -85,6 +80,11 @@ namespace SRXDBackgrounds.Inzo {
             
             foreach (var spotlight in spotlights)
                 spotlight.Envelope.Decay = value;
+        }
+
+        public void SetSustain(float value) {
+            foreach (var spotlight in spotlights)
+                spotlight.Envelope.Sustain = value;
         }
         
         public void SetRelease(float value) {
@@ -111,6 +111,7 @@ namespace SRXDBackgrounds.Inzo {
                 var envelope = spotlight.Envelope;
 
                 envelope.Decay = defaultDecay;
+                envelope.Sustain = 1f;
                 envelope.Release = defaultRelease;
                 envelope.Reset();
             }

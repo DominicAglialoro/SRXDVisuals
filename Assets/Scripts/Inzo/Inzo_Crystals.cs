@@ -6,15 +6,10 @@ namespace SRXDBackgrounds.Inzo {
         [SerializeField] private Inzo_Crystal[] crystals;
         [SerializeField] private float envelopeDuration;
         [SerializeField] private float maxEnvelopeIntensity;
-        [SerializeField] private float maxStarsIntensity;
-        [SerializeField] private float maxLightIntensity;
-        [SerializeField] private float maxFresnelIntensity;
 
         private EnvelopeInverted envelope;
 
         private void Awake() => envelope = new EnvelopeInverted { Duration = envelopeDuration };
-
-        private void Start() => SetIntensity(1f);
 
         private void LateUpdate() {
             float deltaTime = Time.deltaTime;
@@ -32,18 +27,8 @@ namespace SRXDBackgrounds.Inzo {
                 crystal.TriggerParticleSystem();
         }
 
-        public void SetIntensity(float value) {
-            float starsIntensity = maxStarsIntensity * value;
-            float lightIntensity = maxLightIntensity * value;
-            float fresnelIntensity = maxFresnelIntensity * value;
-
-            foreach (var crystal in crystals)
-                crystal.SetOtherIntensity(starsIntensity, lightIntensity, fresnelIntensity);
-        }
-
         public void DoReset() {
             envelope.Reset();
-            SetIntensity(1f);
 
             foreach (var crystal in crystals)
                 crystal.DoReset();
