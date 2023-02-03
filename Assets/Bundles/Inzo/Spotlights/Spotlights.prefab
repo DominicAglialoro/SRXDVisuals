@@ -73,7 +73,7 @@ MonoBehaviour:
   defaultIntensity: 16
   maxIntensity: 16
   oscillatorSpeed: 12
-  maxOscillatorAmount: 0.5
+  maxOscillatorAmount: 0.3
   spread: 12
 --- !u!1001 &79793719364919920
 PrefabInstance:

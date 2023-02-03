@@ -89,7 +89,7 @@ MonoBehaviour:
   minLightEffectDuration: 0.1
   maxLightEffectDuration: 2
   lightOscillatorSpeed: 12
-  lightOscillatorMaxIntensity: 1.5
+  lightOscillatorMaxIntensity: 0.7
   defaultRimBaseIntensity: 1
   maxRimBaseIntensity: 2
   rimEffectIntensity: 4
