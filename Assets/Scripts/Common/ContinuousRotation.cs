@@ -25,11 +25,5 @@ namespace SRXDBackgrounds.Common {
             Rotation += Rate * Time.deltaTime;
             root.localRotation = Quaternion.AngleAxis(Rotation, axis);
         }
-
-#if UNITY_EDITOR
-        public void SetInitialRate(float rate) => this.initialRate = rate;
-        
-        public void SetInitialRotation(float initialRotation) => this.initialRotation = initialRotation;
-#endif
     }
 }

@@ -31,7 +31,13 @@ namespace SRXDBackgrounds.Common {
             sustained = false;
         }
 
-        public float Update(float deltaTime) => Mathf.Lerp(UpdateAttackDecay(deltaTime), 0f, UpdateRelease(deltaTime));
+        public float Update(float deltaTime) => Mathf.Lerp(0f, UpdateAttackDecay(deltaTime), UpdateRelease(deltaTime));
+
+        protected virtual float GetAttackValueFromPhase(float phase) => phase;
+
+        protected virtual float GetDecayValueFromPhase(float phase) => 1f - phase;
+
+        protected virtual float GetReleaseValueFromPhase(float phase) => 1f - phase;
 
         private float UpdateAttackDecay(float deltaTime) {
             if (phase < 1f) {
@@ -43,7 +49,7 @@ namespace SRXDBackgrounds.Common {
                     if (deltaTime <= remaining) {
                         phase += deltaTime / Attack;
 
-                        return phase;
+                        return GetAttackValueFromPhase(phase);
                     }
 
                     phase = 1f;
@@ -60,7 +66,7 @@ namespace SRXDBackgrounds.Common {
             phase += deltaTime / Decay;
 
             if (phase < 2f)
-                return Mathf.Lerp(1f, Sustain, phase - 1f);
+                return Mathf.Lerp(Sustain, 1f, GetDecayValueFromPhase(phase - 1f));
             
             phase = 2f;
 
@@ -71,23 +77,23 @@ namespace SRXDBackgrounds.Common {
             if (sustained) {
                 releasePhase = 0f;
 
-                return 0f;
+                return 1f;
             }
             
             if (releasePhase >= 1f || Release <= 0f) {
                 releasePhase = 1f;
 
-                return 1f;
+                return 0f;
             }
 
             releasePhase += deltaTime / Release;
 
             if (releasePhase < 1f)
-                return releasePhase;
+                return GetReleaseValueFromPhase(releasePhase);
             
             releasePhase = 1f;
 
-            return 1f;
+            return 0f;
         }
     }
 }

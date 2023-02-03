@@ -25,13 +25,5 @@ namespace SRXDBackgrounds.Common {
             Phase += Rate * Time.deltaTime;
             root.localPosition = Mathf.Sin(2f * Mathf.PI * Phase) * axis;
         }
-
-#if UNITY_EDITOR
-        public void SetAxis(Vector3 axis) => this.axis = axis;
-        
-        public void SetInitialRate(float rate) => initialRate = rate;
-
-        public void SetInitialPhase(float initialPhase) => this.initialPhase = initialPhase;
-#endif
     }
 }

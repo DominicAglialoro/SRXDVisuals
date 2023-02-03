@@ -68,11 +68,11 @@ namespace SRXDBackgrounds.Inzo {
 
                     instanceTransform.position = newPosition;
                     instanceTransform.localScale = Mathf.Lerp(minScale, maxScale, (float) random.NextDouble()) * Vector3.one;
-                    continuousRotation.SetInitialRate((random.Next(2) > 0 ? 1f : -1f) * Mathf.Lerp(minRotationRate, maxRotationRate, (float) random.NextDouble()));
-                    continuousRotation.SetInitialRotation(360f * (float) random.NextDouble());
-                    oscillatePosition.SetAxis(Mathf.Lerp(minOscillateAmount, maxOscillateAmount, (float) random.NextDouble()) * Vector3.up);
-                    oscillatePosition.SetInitialRate(Mathf.Lerp(minOscillateRate, maxOscillateRate, (float) random.NextDouble()));
-                    oscillatePosition.SetInitialPhase((float) random.NextDouble());
+                    // continuousRotation.SetInitialRate((random.Next(2) > 0 ? 1f : -1f) * Mathf.Lerp(minRotationRate, maxRotationRate, (float) random.NextDouble()));
+                    // continuousRotation.SetInitialRotation(360f * (float) random.NextDouble());
+                    // oscillatePosition.SetAxis(Mathf.Lerp(minOscillateAmount, maxOscillateAmount, (float) random.NextDouble()) * Vector3.up);
+                    // oscillatePosition.SetInitialRate(Mathf.Lerp(minOscillateRate, maxOscillateRate, (float) random.NextDouble()));
+                    // oscillatePosition.SetInitialPhase((float) random.NextDouble());
                 }
             }
         }
