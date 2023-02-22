@@ -17,8 +17,10 @@ public class SceneManager : MonoBehaviour {
     private bool spinningRight;
     private bool spinningLeft;
     private bool scratching;
-    private string eventIndex = "0";
-    private string eventValue = "255.0";
+    private int eventIndex;
+    private float eventValue;
+    private string eventIndexField = "0";
+    private string eventValueField = "255.0";
 
     private void Start() {
         postProcessingVolume.profile.TryGet(out bloomComponent);
@@ -70,54 +72,50 @@ public class SceneManager : MonoBehaviour {
         GUILayout.BeginHorizontal();
         GUILayout.Label("Index:");
 
-        eventIndex = GUILayout.TextField(eventIndex, GUILayout.Width(200f));
+        eventIndexField = GUILayout.TextField(eventIndexField, GUILayout.Width(200f));
         
         GUILayout.EndHorizontal();
         GUILayout.BeginHorizontal();
         GUILayout.Label("Value:");
 
-        eventValue = GUILayout.TextField(eventValue, GUILayout.Width(200f));
+        eventValueField = GUILayout.TextField(eventValueField, GUILayout.Width(200f));
 
         GUILayout.EndHorizontal();
         
         if (GUILayout.Button("Hit")) {
-            GetFields(out int index, out float value);
-            SendEventHit(index, value);
+            GetFields();
+            SendEventHit(eventIndex, eventValue);
         }
         
         if (GUILayout.Button("On")) {
-            GetFields(out int index, out float value);
-            SendEvent(VisualsEventType.On, index, value);
+            GetFields();
+            SendEvent(VisualsEventType.On, eventIndex, eventValue);
         }
         
         if (GUILayout.Button("Off")) {
-            GetFields(out int index, out _);
-            SendEvent(VisualsEventType.Off, index);
+            GetFields();
+            SendEvent(VisualsEventType.Off, eventIndex);
         }
         
         if (GUILayout.Button("Set Control")) {
-            GetFields(out int index, out float value);
-            SendEvent(VisualsEventType.ControlChange, index, value);
+            GetFields();
+            SendEvent(VisualsEventType.ControlChange, eventIndex, eventValue);
         }
         
         if (GUILayout.Button("Reset All"))
             VisualsEventManager.Instance.ResetAll();
     }
 
-    private void GetFields(out int index, out float value) {
-        if (int.TryParse(eventIndex, out index))
-            index = Math.Clamp(index, 0, 255);
-        else
-            index = 0;
+    private void GetFields() {
+        if (int.TryParse(eventIndexField, out int index))
+            eventIndex = Math.Clamp(index, 0, 255);
 
-        eventIndex = index.ToString();
+        eventIndexField = eventIndex.ToString();
 
-        if (float.TryParse(eventValue, out value))
-            value = Mathf.Clamp(value, 0f, 255f);
-        else
-            value = 255f;
+        if (float.TryParse(eventValueField, out float value))
+            eventValue = Mathf.Clamp(value, 0f, 255f);
 
-        eventValue = value.ToString("0.0#");
+        eventValueField = eventValue.ToString("0.0#");
     }
 
     private static void SendEventHit(int index, float value = 255f) {
