@@ -4,3 +4,6 @@
 [submodule "Packages/srxdbackgrounds.inzo"]
 	path = Packages/srxdbackgrounds.inzo
 	url = https://github.com/DominicAglialoro/srxdbackgrounds.inzo.git
+[submodule "Packages/srxdbackgrounds.usa"]
+	path = Packages/srxdbackgrounds.usa
+	url = https://github.com/DominicAglialoro/srxdbackgrounds.usa.git
