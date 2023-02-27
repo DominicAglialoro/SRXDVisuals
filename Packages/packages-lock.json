@@ -176,22 +176,6 @@
       "source": "embedded",
       "dependencies": {}
     },
-    "srxdbackgrounds.inzo": {
-      "version": "file:srxdbackgrounds.inzo",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {
-        "srxdbackgrounds.common": "1.0.0"
-      }
-    },
-    "srxdbackgrounds.usa": {
-      "version": "file:srxdbackgrounds.usa",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {
-        "srxdbackgrounds.common": "1.0.0"
-      }
-    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
