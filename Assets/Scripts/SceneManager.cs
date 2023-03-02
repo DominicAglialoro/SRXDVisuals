@@ -103,7 +103,7 @@ public class SceneManager : MonoBehaviour {
         }
         
         if (GUILayout.Button("Reset All"))
-            VisualsEventManager.Instance.ResetAll();
+            VisualsEventManager.ResetAll();
     }
 
     private void GetFields() {
@@ -119,25 +119,18 @@ public class SceneManager : MonoBehaviour {
     }
 
     private static void SendEventHit(int index, float value = 255f) {
-        var visualsEventManager = VisualsEventManager.Instance;
-        
-        visualsEventManager.SendEvent(new VisualsEvent(VisualsEventType.On, index, value));
-        visualsEventManager.SendEvent(new VisualsEvent(VisualsEventType.Off, index, 255f));
+        VisualsEventManager.SendEvent(new VisualsEvent(VisualsEventType.On, index, value));
+        VisualsEventManager.SendEvent(new VisualsEvent(VisualsEventType.Off, index, 255f));
     }
     
-    private static void SendEvent(VisualsEventType type, int index, float value = 255f) {
-        var visualsEventManager = VisualsEventManager.Instance;
-        
-        visualsEventManager.SendEvent(new VisualsEvent(type, index, value));
-    }
+    private static void SendEvent(VisualsEventType type, int index, float value = 255f)
+        => VisualsEventManager.SendEvent(new VisualsEvent(type, index, value));
 
     private static void UpdateNoteHold(ref bool state, bool newState, int index) {
-        var visualsEventManager = VisualsEventManager.Instance;
-        
         if (!state && newState)
-            visualsEventManager.SendEvent(new VisualsEvent(VisualsEventType.On, index, 255f));
+            VisualsEventManager.SendEvent(new VisualsEvent(VisualsEventType.On, index, 255f));
         else if (state && !newState)
-            visualsEventManager.SendEvent(new VisualsEvent(VisualsEventType.Off, index, 255f));
+            VisualsEventManager.SendEvent(new VisualsEvent(VisualsEventType.Off, index, 255f));
 
         state = newState;
     }
