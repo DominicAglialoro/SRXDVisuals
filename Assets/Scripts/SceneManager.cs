@@ -20,7 +20,7 @@ public class SceneManager : MonoBehaviour {
     private int eventIndex;
     private float eventValue;
     private string eventIndexField = "0";
-    private string eventValueField = "255.0";
+    private string eventValueField = "256.0";
 
     private void Start() {
         postProcessingVolume.profile.TryGet(out bloomComponent);
@@ -113,7 +113,7 @@ public class SceneManager : MonoBehaviour {
         eventIndexField = eventIndex.ToString();
 
         if (float.TryParse(eventValueField, out float value))
-            eventValue = Mathf.Clamp(value, 0f, 255f);
+            eventValue = Mathf.Clamp(value, 0f, 256f);
 
         eventValueField = eventValue.ToString("0.0#");
     }
