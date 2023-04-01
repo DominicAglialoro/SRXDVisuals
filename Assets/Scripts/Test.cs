@@ -18,7 +18,8 @@ public class Test : MonoBehaviour {
         var slice = buffer.BeginWrite<float2>(0, 256);
 
         for (int i = 0; i < 256; i++) {
-            float time = 2f * Mathf.PI * (Time.time + (float) i / 64);
+            float time = 2f * Mathf.PI * (Time.time + (float) i / 16
+                );
 
             slice[i] = new float2(Mathf.Cos(time), Mathf.Sin(time));
         }
